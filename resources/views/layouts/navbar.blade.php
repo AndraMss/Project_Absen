@@ -1,23 +1,3 @@
-<!-- resources/views/layouts/navbar.blade.php -->
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Aplikasi Absensi</title>
-</head>
-<body>
-    <nav>
-        <a href="{{ route('absen.create') }}">ABSEN</a> |
-        <a href="{{ route('user.index') }}">USER</a> |
-        <a href="{{ route('absen.index') }}">LAPORAN</a>
-    </nav>
-    <hr>
-    <div>
-        @yield('content')
-    </div>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html>
 <head>
