@@ -38,7 +38,7 @@ Route::post('/', [AbsenController::class, 'store'])->name('absen.store');
 
 
 Auth::routes([
-    // 'register' => false
+    'register' => false
 ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
