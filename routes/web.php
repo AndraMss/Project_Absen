@@ -30,12 +30,8 @@ Route::get('/home', function () {
     return view('welcome');
 });
 
-// Route::get('/', [AbsenController::class, 'index']);
 Route::get('/', [AbsenController::class, 'create'])->name('absen.create');
 Route::post('/', [AbsenController::class, 'store'])->name('absen.store');
-
-
-
 
 Auth::routes([
     'register' => false
