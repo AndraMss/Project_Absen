@@ -42,7 +42,7 @@
                                     <span class="text-muted">-</span>
                                 @endif
                             </td>
-                            <td>{{ $d->created_at->format('d M Y, H:i') }}</td>
+                            <!-- <td>{{ $d->created_at->format('d M Y, H:i') }}</td> -->
                         </tr>
                         @empty
                         <tr>
