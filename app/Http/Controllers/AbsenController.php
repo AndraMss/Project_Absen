@@ -7,30 +7,35 @@ use Illuminate\Http\Request;
 
 class AbsenController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $data = Absen::orderBy('created_at', 'desc')->get();
         return view('absen.index', compact('data'));
     }
 
-    public function create() {
+    public function create()
+    {
         return view('absen.form');
     }
 
-    public function store(Request $request) {
-        $request->validate([
+    public function store(Request $request)
+    {
+        $rules = [
             'nama' => 'required',
             'asal_sekolah' => 'required',
-            'status' => 'required|in:H,I,S,A',
-            'bukti' => 'nullable|image|max:2048',
-        ]);
+            'status' => 'required',
+        ];
 
-        if (in_array($request->status, ['H', 'I', 'S']) && !$request->hasFile('bukti')) {
-            return back()->withErrors(['bukti' => 'Bukti harus diunggah untuk H, Izin, atau Sakit'])->withInput();
+        // kalau status bukan A (Alpha), wajib upload bukti
+        if ($request->status !== 'A') {
+            $rules['bukti'] = 'required|image|mimes:jpg,png,jpeg|max:2048';
         }
 
+        $validated = $request->validate($rules);
+
         $path = null;
-        if ($request-> hasFile('bukti')) {
-            $path = $request->file('bukti')->store('bukti_absen', 'public');
+        if ($request->hasFile('bukti')) {
+            $path = $request->file('bukti')->store('bukti', 'public');
         }
 
         Absen::create([
@@ -38,8 +43,9 @@ class AbsenController extends Controller
             'asal_sekolah' => $request->asal_sekolah,
             'status' => $request->status,
             'bukti' => $path,
+            'waktu' => now(),
         ]);
 
-        return redirect()->back()->with('success', 'Absen berhasil disimpan');
+        return redirect()->back()->with('success', 'Absen berhasil!');
     }
 }
