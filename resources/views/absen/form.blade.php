@@ -5,7 +5,7 @@
     <div class="card shadow-sm">
         <div class="card-body">
             <h2 class="mb-4">Form Absensi</h2>
-            
+
             {{-- Notifikasi sukses --}}
             @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -14,6 +14,14 @@
             </div>
             @endif
 
+            {{-- Notifikasi error --}}
+            @if ($errors->any())
+            <div>
+                @foreach ($errors->all() as $error)
+                <p>{{ $error }}</p>
+                @endforeach
+            </div>
+            @endif
 
             <form action="{{ route('absen.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
