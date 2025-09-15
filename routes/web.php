@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/home', function () {
+    return view('welcome');
+});
 
 Route::middleware('auth')->group( function() {
     Route::get('/user', [UserManualController::class, 'index'])->name('user.index');
@@ -26,17 +29,11 @@ Route::middleware('auth')->group( function() {
     Route::get('/laporan', [AbsenController::class, 'index'])->name('absen.index');
 });
 
-Route::get('/home', function () {
-    return view('welcome');
-});
-
 Route::get('/', [AbsenController::class, 'create'])->name('absen.create');
-Route::post('/', [AbsenController::class, 'store'])->name('absen.store');
+Route::post('/absen', [AbsenController::class, 'store'])->name('absen.store');
 
 Auth::routes([
     'register' => false
 ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-//update test

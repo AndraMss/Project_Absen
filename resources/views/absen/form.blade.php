@@ -5,7 +5,6 @@
     <div class="card shadow-sm">
         <div class="card-body">
             <h2 class="mb-4">Form Absensi</h2>
-
             {{-- Notifikasi sukses --}}
             @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -13,7 +12,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
-
             {{-- Notifikasi error --}}
             @if ($errors->any())
             <div>
