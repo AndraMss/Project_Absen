@@ -30,7 +30,7 @@ Route::middleware('auth')->group( function() {
 });
 
 Route::get('/', [AbsenController::class, 'create'])->name('absen.create');
-Route::post('/absen', [AbsenController::class, 'store'])->name('absen.store');
+Route::post('/absen', [AbsenController::class, 'store'])->name('absen.form');
 
 Auth::routes([
     'register' => false
