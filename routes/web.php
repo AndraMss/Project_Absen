@@ -29,8 +29,8 @@ Route::middleware('auth')->group( function() {
     Route::get('/laporan', [AbsenController::class, 'index'])->name('absen.index');
 });
 
-Route::get('/', [AbsenController::class, 'create'])->name('absen.create');
-Route::post('/absen', [AbsenController::class, 'store'])->name('absen.form');
+Route::get('/', [AbsenController::class, 'create'])->name('absen.form');
+Route::post('/absen', [AbsenController::class, 'store'])->name('absen.store');
 
 Auth::routes([
     'register' => false
