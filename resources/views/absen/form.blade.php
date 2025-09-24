@@ -48,11 +48,7 @@
                     </select>
                 </div>
 
-                {{-- Bukti Upload --}}
-                <div id="bukti-div" class="mb-3" style="display:none;">
-                    <label for="bukti" class="form-label">Upload Bukti (Foto)</label>
-                    <input type="file" id="bukti" name="bukti" class="form-control" accept="image/*">
-                </div>
+                
 
                 <button type="submit" class="btn btn-primary">Kirim</button>
             </form>

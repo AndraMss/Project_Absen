@@ -26,10 +26,7 @@ class AbsenController extends Controller
             'status' => 'required',
         ];
 
-        // kalau status bukan A (Alpha), wajib upload bukti
-        if ($request->status !== 'A') {
-            $rules['bukti'] = 'required|image|mimes:jpg,png,jpeg|max:2048';
-        }
+        
 
         $validated = $request->validate($rules);
 

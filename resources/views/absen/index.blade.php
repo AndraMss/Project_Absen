@@ -13,7 +13,6 @@
                             <th>Nama</th>
                             <th>Asal Sekolah</th>
                             <th>Status</th>
-                            <th>Bukti</th>
                             <th>Waktu</th>
                         </tr>
                     </thead>
@@ -33,15 +32,7 @@
                                     <span class="badge bg-danger">Alpha</span>
                                 @endif
                             </td>
-                            <td>
-                                @if($d->bukti)
-                                    <a href="{{ asset('storage/'.$d->bukti) }}" target="_blank" class="btn btn-sm btn-outline-secondary">
-                                        📷 Lihat Bukti
-                                    </a>
-                                @else
-                                    <span class="text-muted">-</span>
-                                @endif
-                            </td>
+                            
                             <td>{{ $d->created_at->format('d M Y, H:i') }}</td>
                         </tr>
                         @empty
